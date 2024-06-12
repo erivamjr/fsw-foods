@@ -43,7 +43,7 @@ export const ProductDetails = ({
     setQuantity((prev) => Math.max(1, prev - 1));
 
   return (
-    <div className="py-5">
+    <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
       <div className="flex items-center gap-[0.375rem] px-5">
         <div className="relative h-6 w-6">
           <Image
@@ -68,12 +68,14 @@ export const ProductDetails = ({
               <DiscountBadge product={product} />
             )}
           </div>
+
           {product.discountPercentage > 0 && (
             <p className="text-sm text-muted-foreground">
               De: {formatCurrency(Number(product.price))}
             </p>
           )}
         </div>
+
         <div className="flex items-center gap-3 text-center">
           <Button
             size="icon"
@@ -119,7 +121,7 @@ export const ProductDetails = ({
 
             {Number(product.restaurant.deliveryFee) > 0 ? (
               <p className="text-ss font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
+                {product.restaurant.deliveryTimeMinutes} min
               </p>
             ) : (
               <p className="text-sm font-semibold">Grátis</p>

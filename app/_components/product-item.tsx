@@ -30,10 +30,13 @@ export const ProductItem = ({ product }: ProductItemProps) => {
             fill
             className="rounded-lg object-cover shadow-md"
           />
-          {product.discountPercentage > 0 && (
-            <DiscountBadge product={product} />
-          )}
+          <div className="absolute left-2 top-2">
+            {product.discountPercentage > 0 && (
+              <DiscountBadge product={product} />
+            )}
+          </div>
         </div>
+
         <div>
           <h2 className="truncate text-sm">{product.name}</h2>
           <div className="flex items-center gap-1">
